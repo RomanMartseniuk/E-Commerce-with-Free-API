@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 
-export const Container = ({
+export const Section = ({
   children,
   className = "",
 }: {
@@ -11,7 +11,7 @@ export const Container = ({
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center flex-col container px-2",
+        "w-full flex flex-col items-center",
         className,
       )}
     >

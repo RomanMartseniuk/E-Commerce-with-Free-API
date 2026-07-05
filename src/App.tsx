@@ -11,7 +11,7 @@ function App() {
     <>
       <Header isBurger={isBurger} setBurger={setIsBurger} />
       <BurgerMenu isBurger={isBurger} />
-      <main>
+      <main className="pt-20 min-h-screen w-full flex flex-col items-center">
         <Outlet />
       </main>
       <Footer />

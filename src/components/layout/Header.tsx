@@ -1,3 +1,4 @@
+import { useResponsive } from "@/hooks/useResponsive";
 import { Container } from "../common/Container";
 
 import { Button } from "../ui/button";
@@ -12,20 +13,24 @@ export const Header = ({
   isBurger: boolean;
   setBurger: (arg: boolean) => void;
 }) => {
+  const { isMobile } = useResponsive();
+
   return (
-    <header className="fixed top-0 left-0 w-screen bg-secondary">
+    <header className="fixed top-0 left-0 w-screen bg-secondary flex items-center justify-center">
       <Container className="justify-between flex-row h-15 ">
         <Button>Shop</Button>
 
-        <Nav />
-        <Button
-          variant={"secondary"}
-          onClick={() => {
-            setBurger(!isBurger);
-          }}
-        >
-          {!isBurger ? <IconMenu2 stroke={2} /> : <IconX stroke={2} />}
-        </Button>
+        {!isMobile && <Nav />}
+        {isMobile && (
+          <Button
+            variant={"secondary"}
+            onClick={() => {
+              setBurger(!isBurger);
+            }}
+          >
+            {!isBurger ? <IconMenu2 stroke={2} /> : <IconX stroke={2} />}
+          </Button>
+        )}
       </Container>
     </header>
   );

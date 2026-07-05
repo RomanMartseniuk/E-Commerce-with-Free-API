@@ -11,8 +11,8 @@ export const BurgerMenu = ({
   return (
     <div
       className={cn(
-        "fixed top-15 h-[calc(100vh-60px)] transition-all bg-secondary w-screen duration-700",
-        isBurger ? "right-0" : "-right-full",
+        "fixed top-15 h-[calc(100vh-60px)] transition-all bg-secondary w-screen duration-700 z-15",
+        isBurger ? "right-0" : "right-[-110%]",
       )}
     >
       <Container>
