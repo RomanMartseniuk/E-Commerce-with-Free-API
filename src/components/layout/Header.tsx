@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { Nav } from "./Nav";
 
 import { IconMenu2, IconX } from "@tabler/icons-react";
+import { Link } from "react-router";
 
 export const Header = ({
   isBurger,
@@ -18,8 +19,9 @@ export const Header = ({
   return (
     <header className="fixed z-100 top-0 left-0 w-screen bg-secondary flex items-center justify-center">
       <Container className="justify-between flex-row h-15 ">
-        <Button>Shop</Button>
-
+        <Link to="/">
+          <Button>Shop</Button>
+        </Link>
         {!isMobile && <Nav />}
         {isMobile && (
           <Button
