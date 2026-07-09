@@ -1,18 +1,17 @@
 import { Banners } from "./components/Banners"
-import { CategoriesGroup } from "@/components/common/CategoriesGroup"
-import { ProductsGroup } from "@/components/common/ProductsGroup"
+
+import { PopularCategories } from "@/components/features/categories/PopularCategories";
+import PopularProducts from "@/components/features/products/PopularProducts";
 
 export const HomePage = () => {
   return (
     <>
       <Banners />
-      {/* Popular Categories */}
-      
-      <CategoriesGroup />
-      {/* Sales */}
-      <ProductsGroup />
 
+      {/* Popular Categories */}
+      <PopularCategories />
       {/* Popular Products */}
+      <PopularProducts />
     </>
-  )
+  );
 }

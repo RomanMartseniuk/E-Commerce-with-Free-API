@@ -16,7 +16,7 @@ export const Header = ({
   const { isMobile } = useResponsive();
 
   return (
-    <header className="fixed top-0 left-0 w-screen bg-secondary flex items-center justify-center">
+    <header className="fixed z-100 top-0 left-0 w-screen bg-secondary flex items-center justify-center">
       <Container className="justify-between flex-row h-15 ">
         <Button>Shop</Button>
 

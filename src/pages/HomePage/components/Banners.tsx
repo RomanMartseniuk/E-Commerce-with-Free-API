@@ -14,7 +14,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 export const Banners = () => {
   return (
-    <Section>
+    <Section className="mb-5">
       <Container className="">
         <Carousel
           className="w-full"
