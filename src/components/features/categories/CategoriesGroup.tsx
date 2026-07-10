@@ -1,12 +1,9 @@
-import { Link } from "react-router";
-
 import type { Category } from "@/types/Category";
 
 import { Section } from "../../common/Section";
 import { Container } from "../../common/Container";
 import { CategoryCard } from "./CategoryCard";
 
-import { IconArrowRight } from "@tabler/icons-react";
 import { GroupTitle } from "../groups/GroupTitle";
 import { GroupSlider } from "../groups/GroupSlider";
 
@@ -27,12 +24,6 @@ export const CategoriesGroup = ({
           {categories.map((item) => (
             <CategoryCard key={item.id} category={item} />
           ))}
-          <Link
-            to="/categories"
-            className="size-40 flex flex-col items-center justify-center aspect-square rounded-full bg-red-200 transition-all hover:translate-y-0.5"
-          >
-            <IconArrowRight size={50} />
-          </Link>
         </GroupSlider>
       </Container>
     </Section>

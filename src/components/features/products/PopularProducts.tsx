@@ -1,11 +1,24 @@
-import { ProductsGroup } from './ProductsGroup'
-
-import { popularProducts } from '@/data/popularProducts'
+import { useProducts } from "@/hooks/useProducts";
+import { ProductsGroup } from "./ProductsGroup";
+import { Loader } from "@/components/common/Loader";
 
 const PopularProducts = () => {
-  return (
-    <ProductsGroup title='Popular Products' products={popularProducts} />
-  )
-}
+  const {
+    data: popularProducts,
+    isLoading,
+  } = useProducts({ offset: 0, limit: 4 });
 
-export default PopularProducts
+  return (
+    <>
+      {isLoading ? (
+        <Loader className="h-80"/>
+      ) : popularProducts ? (
+        <ProductsGroup title="Popular Products" products={popularProducts} />
+      ) : (
+        <></>
+      )}
+    </>
+  );
+};
+
+export default PopularProducts;

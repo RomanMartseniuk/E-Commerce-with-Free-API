@@ -1,23 +1,12 @@
 import type { Product } from "@/types/Product";
-import { api } from "../api";
+import { request } from "../api";
+import type { ProductsReqParams } from "@/types/ProductsReqParams";
 
-interface ProductsParams {
-   id?: number,
-
-   title?: string,
-   categoryId: number,
-   price_min?: number,
-   price_max?: number,
-   offset?: number,
-   limit?: number
-
+const get = async (params: string) => {
+   return request(`products${params}`)
 }
 
-const request = async (params: URLSearchParams | string) => {
-   return api<Product[]>(`proucts/${params.toString()}`)
-}
-
-export const getProducts = async (params?: ProductsParams) => { 
+export const getProducts = async (params?: ProductsReqParams) => { 
    const searchParams = new URLSearchParams();
 
 
@@ -37,16 +26,18 @@ export const getProducts = async (params?: ProductsParams) => {
 
    if (params?.offset) {
       searchParams.append("offset", String(params.offset));
+   } else {
+      searchParams.append("offset", String(0));
    }
 
    if (params?.limit) {
       searchParams.append("limit", String(params.limit));
    }
 
-   return request(searchParams);
+   return get(`?${searchParams.toString()}`) as Promise<Product[]>;
 
 }
 
 export const getProduct = async (id: number) => {
-   return request(String(id));
+   return get(String(`/${id}`)) as Promise<Product>;
 };

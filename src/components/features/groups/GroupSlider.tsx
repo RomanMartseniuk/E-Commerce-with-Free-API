@@ -5,7 +5,7 @@ export const GroupSlider = ({className='',  children}: {className?: string, chil
   return (
     <div
       className={cn(
-        "w-full flex flex-nowrap items-start justify-start gap-10 overflow-x-scroll overflow-y-hidden py-2",
+        "w-full flex flex-wrap items-center justify-center gap-10 py-2",
         className,
       )}
     >

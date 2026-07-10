@@ -10,7 +10,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
   return (
     <Link
       to={`/products/${product.id}`}
-      className="group flex flex-col rounded-2xl border bg-card p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
+      className="group flex w-85 flex-col rounded-2xl border bg-card p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl"
     >
       <div className="flex aspect-square items-center justify-center overflow-hidden rounded-xl bg-muted">
         {!product.images[0] || product.images[0].length < 1 ? (

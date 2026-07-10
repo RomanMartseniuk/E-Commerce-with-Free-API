@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Route, BrowserRouter as Router, Routes } from "react-router";
 
 import "./index.css";
@@ -22,27 +22,31 @@ import { AccountPage } from "./pages/AccountPage";
 
 import { NotFoundPage } from "./pages/NotFoundPage";
 
+const queryClient = new QueryClient();
+
 createRoot(document.getElementById("root")!).render(
-  <Router>
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route index element={<HomePage />} />
+  <QueryClientProvider client={queryClient}>
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index element={<HomePage />} />
 
-        <Route path="products" element={<ProductsPage />}>
-          <Route path=":id" element={<ProductPage />} />
+          <Route path="products" element={<ProductsPage />}>
+            <Route path=":id" element={<ProductPage />} />
+          </Route>
+
+          <Route path="categories" element={<CategoriesPage />} />
+
+          <Route path="wishlist" element={<WishlistPage />} />
+          <Route path="cart" element={<ShoppingCartPage />} />
+
+          <Route path="auth" element={<AuthPage />} />
+
+          <Route path="acc" element={<AccountPage />} />
+
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
-
-        <Route path="categories" element={<CategoriesPage />} />
-
-        <Route path="wishlist" element={<WishlistPage />} />
-        <Route path="cart" element={<ShoppingCartPage />} />
-
-        <Route path="auth" element={<AuthPage />} />
-
-        <Route path="acc" element={<AccountPage />} />
-
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-    </Routes>
-  </Router>,
+      </Routes>
+    </Router>
+  </QueryClientProvider>,
 );
