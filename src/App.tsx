@@ -7,6 +7,8 @@ import {Footer} from "@/components/layout/Footer";
 import { BurgerMenu } from "@/components/layout/BurgerMenu";
 
 import { Toaster } from "./components/ui/sonner";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   const [isBurger, setIsBurger] = useState(false);
@@ -20,6 +22,8 @@ function App() {
       </main>
       <Toaster />
       <Footer />
+      <Analytics />
+      <SpeedInsights />
     </>
   );
 }
