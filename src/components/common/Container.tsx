@@ -11,7 +11,7 @@ export const Container = ({
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center flex-col container px-2",
+        "mx-auto  relative flex items-center justify-center flex-col container px-2",
         className,
       )}
     >
